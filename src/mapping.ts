@@ -1,4 +1,4 @@
-import { BigDecimal, ethereum } from "@graphprotocol/graph-ts";
+import { log, BigDecimal, ethereum } from "@graphprotocol/graph-ts";
 
 import { Approval, ERC20, Transfer } from "../generated/ERC20/ERC20";
 import {
@@ -8,7 +8,7 @@ import {
   TokenBalance,
 } from "../generated/schema";
 
-const zeroAddress = '0x0000000000000000000000000000000000000000';
+const zeroAddress = "0x0000000000000000000000000000000000000000";
 
 function loadOrCreateAccount(address: string): Account | null {
   let account = Account.load(address);
@@ -88,6 +88,8 @@ export function handleApproval(event: Approval): void {
 }
 
 export function handleTransfer(event: Transfer): void {
+  log.info("[handleTransfer function] TRANSFEER event \n", ["Hello"]);
+
   let token = loadOrCreateToken(event);
   if (!token) {
     return;

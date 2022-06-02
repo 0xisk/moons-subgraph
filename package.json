@@ -3,14 +3,18 @@
   "version": "0.0.1",
   "description": "Subgraph for indexing all ERC20 token balances and approvals",
   "scripts": {
+    "all": "yarn codegen && yarn build && yarn create-local && yarn deploy-local",
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy georgeroman/erc20-subgraph --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/"
+    "deploy": "graph deploy georgeroman/erc20-subgraph --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "create-local": "graph create georgeroman/erc20-subgraph-2 --node http://localhost:8020/  ",
+    "remove-local": "graph remove georgeroman/erc20-subgraph-2 --node http://localhost:8020/  ",
+    "deploy-local": "graph deploy georgeroman/erc20-subgraph-2 --node http://localhost:8020/ --ipfs http://localhost:5001  "
   },
   "author": "George Roman",
   "license": "MIT",
   "devDependencies": {
-    "@graphprotocol/graph-cli": "^0.20.0",
-    "@graphprotocol/graph-ts": "^0.20.0"
+    "@graphprotocol/graph-cli": "0.21.0",
+    "@graphprotocol/graph-ts": "0.20.0"
   }
 }

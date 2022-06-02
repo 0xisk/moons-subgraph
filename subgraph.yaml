@@ -5,10 +5,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: ERC20
-    network: mainnet
+    network: testnet
     source:
       abi: ERC20
-      startBlock: 0
+      address: '0x138fAFa28a05A38f4d2658b12b0971221A7d5728'
+      startBlock: 3700
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
